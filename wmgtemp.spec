@@ -41,7 +41,7 @@ temperatury wy¶wietla ostrzegaj±ce ¶wiate³ka.
 
 Wspieranymi urz±dzeniami (czujnikami) s± VIA686A, W83781D, W83627HF,
 AS99127F i ADM1021. Jest tak¿e dostêpne wsparcie dla innych urz±dzeñ
-za pomoc± skanowania po dostepnych czujnikach. Oryginalnie pakiet ten
+za pomoc± skanowania po dostêpnych czujnikach. Oryginalnie pakiet ten
 zosta³ napisany dla VIA686A i jest przetestowany tylko dla tego
 czujnika.
 
