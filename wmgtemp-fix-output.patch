@@ -1,0 +1,66 @@
+diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/src/wmgtemp.c wmgtemp-0.5-new/src/wmgtemp.c
+--- wmgtemp-0.5/src/wmgtemp.c		2001/12/18 19:32:26	1.6
++++ wmgtemp-0.5-new/src/wmgtemp.c	2001/12/18 19:34:01	1.8
+@@ -243,7 +243,7 @@
+   }
+ 
+   /* output the name of the sensor if found. */
+-  printf("wmgtemp: Primary Sensor - %s on %s\n", name->prefix, sensors_get_adapter_name(name->bus));
++  printf("wmgtemp: Primary sensor - %s on %s\n", name->prefix, sensors_get_adapter_name(name->bus));
+   if(swap_types) {
+     printf("wmgtemp: swapping temps\n");
+     tmp_swap = SENSOR_DEF_SYS;
+@@ -671,7 +671,7 @@
+   printf("Usage: wmgtemp [options]
+ Options:
+    -s, --scale=SCALE  display temperatures in SCALE
+-                      SCALE=kelvin, fahrenheit
++                      SCALE=celsius, kelvin, fahrenheit
+                       [Default: celsius]
+    -g, --graph=STYLE  display graph as STYLE
+                       STYLE=line, block
+@@ -902,7 +902,7 @@
+   if(rc_high != NULL) {
+     high_temp = (double)atoi(rc_high);
+     if(!high_temp) {
+-      printf("Invalid temperature\n");
++      printf("Invalid 'high' temperature\n");
+       parse_ok = 0;
+     }
+     else {
+@@ -912,7 +912,7 @@
+   if(rc_warn != NULL) {
+     warn_temp = (double)atoi(rc_warn);
+     if(!warn_temp) {
+-      printf("Invalid temperature\n");
++      printf("Invalid 'warn' temperature\n");
+       parse_ok = 0;
+     }
+     else {
+@@ -922,7 +922,7 @@
+   if(rc_max != NULL) {
+     display_max = range_upper = (double)atoi(rc_max);
+     if(!range_upper) {
+-      printf("Invalid temperature\n");
++      printf("Invalid upper (max) temperature range\n");
+       parse_ok = 0;
+     }
+     else {
+@@ -932,7 +932,7 @@
+   if(rc_min != NULL) {
+     display_min = range_lower = (double)atoi(rc_min);
+     if(!range_lower) {
+-      printf("Invalid temperature\n");
++      printf("Invalid lower (min) temperature range\n");
+       parse_ok = 0;
+     }
+     else {
+@@ -952,7 +952,7 @@
+   if(rc_execat != NULL) {
+     execat = (double)atoi(rc_execat);
+     if(!execat) {
+-      printf("Invalid temperature\n");
++      printf("Invalid 'execat' temperature\n");
+       parse_ok = 0;
+     }
+     else {

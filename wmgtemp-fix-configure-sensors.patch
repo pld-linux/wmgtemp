@@ -1,0 +1,42 @@
+diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/src/wmgtemp.c wmgtemp-0.5-new/src/wmgtemp.c
+--- wmgtemp-0.5/src/wmgtemp.c		2001/12/18 17:07:22	1.3
++++ wmgtemp-0.5-new/src/wmgtemp.c	2001/12/18 17:43:13	1.5
+@@ -606,23 +606,30 @@
+ 
+   /* Initialize sensors using sensors config file */
+   config_file = fopen("/etc/sensors.conf", "r");
+-  res = sensors_init(config_file);
+ 
+-  if(res != 0) {
++  if(config_file == NULL) {
+     config_file = fopen("/usr/etc/sensors.conf", "r");
+-    res = sensors_init(config_file);
+ 
+-    if(res != 0) {
++    if(config_file == NULL) {
+       config_file = fopen("/usr/local/etc/sensors.conf", "r");
+-      res = sensors_init(config_file);
+ 
+-      if(res != 0) {
+-	fprintf(stderr,"%s\n", sensors_strerror(res));
++      if(config_file == NULL) {
++	perror("Error opening sensors.conf");
+ 	return 0;
+       }
+     }
+   }
+-  fclose(config_file);
++
++  res = sensors_init(config_file);
++
++  if(res != 0) {
++    fprintf(stderr,"Error initializing sensors: %s\n", sensors_strerror(res));
++    return 0;
++  }
++
++  if(fclose(config_file))
++    perror("Error closing sensors.conf");
++
+   return 1;
+ }
+ 

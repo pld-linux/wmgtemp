@@ -1,0 +1,88 @@
+diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/Makefile wmgtemp-0.5-new/Makefile
+--- wmgtemp-0.5/Makefile	Mon Jun 11 23:32:07 2001
++++ wmgtemp-0.5-new/Makefile	Sun Jan  6 02:52:13 2002
+@@ -1,6 +1,15 @@
+-INSTALL=install
+-MANINSTDIR=/usr/local/man/man1
+-MANPAGE=wmgtemp.1
++# Programs used
++GZIP    = gzip
++INSTALL = install
++# Directories
++MANDIR  = /usr/local/man
++MAN1DIR = $(MANDIR)/man1
++# Files
++MANPAGE = wmgtemp.1
++
++# Main destination directory
++DESTDIR   := 
++export DESTDIR
+ 
+ all:    
+ 	( cd src && $(MAKE) )
+@@ -8,6 +17,12 @@
+ depend:    
+ 	( cd src && $(MAKE) depend )
+ 
+-install:    
++clean:
++	( cd src && $(MAKE) clean )
++
++install:  
+ 	( cd src && $(MAKE) install )
+-	$(INSTALL) -m 755 -c $(MANPAGE) $(MANINSTDIR)/$(MANPAGE)
+\ No newline at end of file
++	$(INSTALL) -m 644 -c $(MANPAGE) $(DESTDIR)$(MAN1DIR)/$(MANPAGE)
++	$(GZIP) $(DESTDIR)$(MAN1DIR)/$(MANPAGE)
++
++.PHONY: all depend clean install
+diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/src/Makefile wmgtemp-0.5-new/src/Makefile
+--- wmgtemp-0.5/src/Makefile	Mon Jun 11 23:32:07 2001
++++ wmgtemp-0.5-new/src/Makefile	Sun Jan  6 02:55:50 2002
+@@ -1,17 +1,23 @@
++# Programs used
+ CC      = gcc
+-INSTALL = /usr/bin/install
++INSTALL = install
++# Flags
+ LDFLAGS = -L/usr/X11R6/lib -lXpm -lXext -lX11 -lsensors
++CFLAGS  = -Wall -O2
++# Directories
++BINDIR  = /usr/local/bin
++# Files
+ BINARY  = wmgtemp
+-CCFLAGS = -Wall
+-INSTDIR = /usr/local/bin
+-
+ OFILES  = wmgtemp.o \
+ 	./wmgeneral/wmgeneral.o \
+ 	./wmgeneral/misc.o \
+ 	./wmgeneral/list.o
+ 
++# Main destination directory
++DESTDIR :=
++
+ %.o:
+-	$(CC) $(CCFLAGS) -c $*.c -o $*.o
++	$(CC) $(CFLAGS) -c $*.c -o $*.o
+ 
+ $(BINARY): $(OFILES)
+ 	$(CC) $(OFILES) $(LDFLAGS) -o $(BINARY)
+@@ -20,7 +26,7 @@
+ 	@ $(RM) $(OFILES) *~ "#"* $(BINARY)
+ 
+ install::
+-	$(INSTALL) -m 755 -c $(BINARY) $(INSTDIR)/$(BINARY)
++	$(INSTALL) -m 755 -c $(BINARY) $(DESTDIR)$(BINDIR)/$(BINARY)
+ 
+ depend:
+ 	@ $(CC) -MM *.c > .deps
+@@ -28,4 +34,6 @@
+ count:
+ 	@ wc -l *.c *.h | sort
+ 
+-include .deps
+\ No newline at end of file
++.PHONY: clean install depend count
++
++include .deps

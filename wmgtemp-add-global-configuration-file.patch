@@ -1,0 +1,51 @@
+diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/src/wmgtemp.c wmgtemp-0.5-new/src/wmgtemp.c
+--- wmgtemp-0.5/src/wmgtemp.c		2001/12/18 19:53:04	1.8
++++ wmgtemp-0.5-new/src/wmgtemp.c	2001/12/18 20:18:03	1.9
+@@ -773,6 +773,8 @@
+ }
+ 
+ 
++#define TEMP_SIZE 128
++
+ int process_config(int argc, char **argv) {
+   char *rc_graph  = NULL;
+   char *rc_scale  = NULL;
+@@ -788,7 +790,8 @@
+   int opt_index;
+   int opt;
+   char *p;
+-  char temp[128];
++  char temp[TEMP_SIZE];
++  FILE *f;
+ 
+   rckeys wmgtemp_keys[] = {
+     { "graph", &rc_graph },
+@@ -820,8 +823,26 @@
+   };
+   
+   p = getenv("HOME");
+-  strcpy(temp, p);
+-  strcat(temp, "/.wmgtemprc");
++  strncpy(temp, p, TEMP_SIZE);
++  strncat(temp, "/.wmgtemprc", TEMP_SIZE);
++  if((f=fopen(temp, "r")) != NULL) 
++    fclose(f);
++  else {
++    strcpy(temp, "/etc/wmgtemprc");
++    if((f=fopen(temp, "r")) != NULL) 
++      fclose(f);
++    else {
++      strcpy(temp, "/usr/etc/wmgtemprc");
++      if((f=fopen(temp, "r")) != NULL) 
++	fclose(f);
++      else {
++	strcpy(temp, "/usr/local/etc/wmgtemprc");
++	if((f=fopen(temp, "r")) != NULL) 
++	  fclose(f);
++      }
++    }
++  }
++    
+   parse_rcfile(temp, wmgtemp_keys);
+ 
+   /* Do getopt stuff. */
