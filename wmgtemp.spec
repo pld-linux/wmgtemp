@@ -22,7 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
-%description 
+%description
 wmgtemp is a dockable/swallowed applet intended for use with
 WindowMaker. It displays the CPU and System temperatures (both in
 numerically and graphically) using the lm_sensors package and
@@ -32,7 +32,7 @@ Supported devices are VIA686A, W83781D, W83627HF, AS99127F and
 ADM1021. There is also generic sensors support. This package is tested
 to work only with VIA686A.
 
-%description -l pl 
+%description -l pl
 wmgtemp jest dokowalnym czujnikiem temperatury przeznaczonym do u¿ycia
 z WindowMakerem. Wy¶wietla on temperatury CPU i p³yty g³ównej (zarówno
 w postaci warto¶ci jak i graficznie) u¿ywaj±c pakietu lm_sensors i
