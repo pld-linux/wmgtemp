@@ -6,8 +6,6 @@ Release:	1
 License:	Artistic
 Vendor:		Roger Dunce <kronos@fluxcode.net>
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	http://www.fluxcode.net/%{name}-%{version}.tar.gz
 Patch0:		%{name}-add-it87-chip.patch
 Patch1:		%{name}-spelling.patch
