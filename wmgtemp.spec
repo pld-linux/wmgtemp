@@ -2,12 +2,13 @@ Summary:	Temperature sensor dock app for WindowMaker
 Summary(pl):	Dokowalny czujnik temperatury dla WindowMakera
 Name:		wmgtemp
 Version:	0.7
-Release:	1
+Release:	2
 License:	Artistic
 Vendor:		Roger Dunce <kronos@fluxcode.net>
 Group:		X11/Window Managers/Tools
 Source0:	http://www.fluxcode.net/%{name}-%{version}.tar.gz
 # Source0-md5:	11b179fbb2f667db7e0c8ddb63a986ce
+Source1:	%{name}.desktop
 Patch0:		%{name}-fix-output.patch
 Patch1:		%{name}-add-global-configuration-file.patch
 Patch2:		%{name}-fix-makefiles.patch
@@ -52,7 +53,8 @@ czujnika.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_sysconfdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}/docklets}
+install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_sysconfdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -60,7 +62,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_sysconfdir}}
 	BINDIR="%{_bindir}"
 
 install examples/wmgtemprc $RPM_BUILD_ROOT%{_sysconfdir}
-
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,3 +73,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmgtemp
 %{_mandir}/man1/wmgtemp.1*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/wmgtemprc
+%{_desktopdir}/docklets/*
