@@ -1,20 +1,16 @@
 Summary:	Temperature sensor dock app for WindowMaker
 Summary(pl):	Dokowalny czujnik temperatury dla WindowMakera
 Name:		wmgtemp
-Version:	0.5
-Release:	2
+Version:	0.7
+Release:	1
 License:	Artistic
 Vendor:		Roger Dunce <kronos@fluxcode.net>
 Group:		X11/Window Managers/Tools
 Source0:	http://www.fluxcode.net/%{name}-%{version}.tar.gz
-# Source0-md5:	75d43cd84bebaf362974d6f37cc8af0c
-Patch0:		%{name}-add-it87-chip.patch
-Patch1:		%{name}-spelling.patch
-Patch2:		%{name}-fix-configure-sensors.patch
-Patch3:		%{name}-add-chip-scanning.patch
-Patch4:		%{name}-fix-output.patch
-Patch5:		%{name}-add-global-configuration-file.patch
-Patch6:		%{name}-fix-makefiles.patch
+# Source0-md5:	11b179fbb2f667db7e0c8ddb63a986ce
+Patch0:		%{name}-fix-output.patch
+Patch1:		%{name}-add-global-configuration-file.patch
+Patch2:		%{name}-fix-makefiles.patch
 URL:		http://www.fluxcode.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	lm_sensors-devel
@@ -49,10 +45,6 @@ czujnika.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
 
 %build
 %{__make} depend all \
