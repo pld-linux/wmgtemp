@@ -1,24 +1,15 @@
 diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='*,v' wmgtemp-0.5/src/wmgtemp.c wmgtemp-0.5-new/src/wmgtemp.c
 --- wmgtemp-0.5/src/wmgtemp.c		2001/12/18 19:32:26	1.6
 +++ wmgtemp-0.5-new/src/wmgtemp.c	2001/12/18 19:34:01	1.8
-@@ -243,7 +243,7 @@
-   }
- 
-   /* output the name of the sensor if found. */
--  printf("wmgtemp: Primary Sensor - %s on %s\n", name->prefix, sensors_get_adapter_name(name->bus));
-+  printf("wmgtemp: Primary sensor - %s on %s\n", name->prefix, sensors_get_adapter_name(name->bus));
-   if(swap_types) {
-     printf("wmgtemp: swapping temps\n");
-     tmp_swap = SENSOR_DEF_SYS;
 @@ -671,7 +671,7 @@
-   printf("Usage: wmgtemp [options]
- Options:
-    -s, --scale=SCALE  display temperatures in SCALE
--                      SCALE=kelvin, fahrenheit
-+                      SCALE=celsius, kelvin, fahrenheit
-                       [Default: celsius]
-    -g, --graph=STYLE  display graph as STYLE
-                       STYLE=line, block
+ 	 "Usage: wmgtemp [options]\n" \
+ 	 "Options:\n" \
+ 	 "   -s, --scale=SCALE  display temperatures in SCALE\n" \
+-	 "                      SCALE=kelvin, fahrenheit\n" \
++	 "                      SCALE=celsius, kelvin, fahrenheit\n" \
+ 	 "                      [Default: celcius]\n" \
+ 	 "   -g, --graph=STYLE  display graph as STYLE\n" \
+ 	 "                      STYLE=line, block\n" \
 @@ -902,7 +902,7 @@
    if(rc_high != NULL) {
      high_temp = (double)atoi(rc_high);

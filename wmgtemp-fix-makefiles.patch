@@ -51,7 +51,7 @@ diff -urN --exclude='*~' --exclude='.#*' --exclude=CVS --exclude=RCS --exclude='
 +BINDIR  = /usr/local/bin
 +# Files
  BINARY  = wmgtemp
--CCFLAGS = -Wall
+-CCFLAGS = -Wall -g
 -INSTDIR = /usr/local/bin
 -
  OFILES  = wmgtemp.o \
