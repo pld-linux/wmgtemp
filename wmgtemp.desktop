@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=wmgtemp
+Comment=Temperature sensor dockapp
+Comment[pl]=Dokowalny czujnik temperatury
+Exec=wmgtemp
+Terminal=false
+Type=Application
+Categories=Applet;
+NotShowIn=GNOME;KDE;
+# vi: encoding=utf-8
