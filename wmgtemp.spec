@@ -7,6 +7,7 @@ License:	Artistic
 Vendor:		Roger Dunce <kronos@fluxcode.net>
 Group:		X11/Window Managers/Tools
 Source0:	http://www.fluxcode.net/%{name}-%{version}.tar.gz
+# Source0-md5:	75d43cd84bebaf362974d6f37cc8af0c
 Patch0:		%{name}-add-it87-chip.patch
 Patch1:		%{name}-spelling.patch
 Patch2:		%{name}-fix-configure-sensors.patch
