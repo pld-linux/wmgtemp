@@ -70,14 +70,13 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_sysconfdir}}
 
 install examples/wmgtemprc $RPM_BUILD_ROOT%{_sysconfdir}
 
-gzip -9nf Artistic BUGS CREDITS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc Artistic BUGS CREDITS README TODO
 %attr(755,root,root) %{_bindir}/wmgtemp
 %{_mandir}/man1/wmgtemp.1*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/wmgtemprc
