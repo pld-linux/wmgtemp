@@ -2,7 +2,7 @@ Summary:	Temperature sensor dock app for WindowMaker
 Summary(pl):	Dokowalny czujnik temperatury dla WindowMakera
 Name:		wmgtemp
 Version:	0.5
-Release:	1
+Release:	2
 License:	Artistic
 Vendor:		Roger Dunce <kronos@fluxcode.net>
 Group:		X11/Window Managers/Tools
