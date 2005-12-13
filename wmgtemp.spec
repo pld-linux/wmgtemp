@@ -72,5 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Artistic BUGS CREDITS README TODO
 %attr(755,root,root) %{_bindir}/wmgtemp
 %{_mandir}/man1/wmgtemp.1*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/wmgtemprc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/wmgtemprc
 %{_desktopdir}/docklets/*
