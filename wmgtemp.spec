@@ -1,5 +1,5 @@
 Summary:	Temperature sensor dock app for WindowMaker
-Summary(pl.UTF-8):   Dokowalny czujnik temperatury dla WindowMakera
+Summary(pl.UTF-8):	Dokowalny czujnik temperatury dla WindowMakera
 Name:		wmgtemp
 Version:	0.7
 Release:	2
