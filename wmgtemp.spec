@@ -1,5 +1,5 @@
 Summary:	Temperature sensor dock app for WindowMaker
-Summary(pl):	Dokowalny czujnik temperatury dla WindowMakera
+Summary(pl.UTF-8):   Dokowalny czujnik temperatury dla WindowMakera
 Name:		wmgtemp
 Version:	0.7
 Release:	2
@@ -28,17 +28,17 @@ Supported devices are VIA686A, W83781D, W83627HF, AS99127F and
 ADM1021. There is also generic sensors support. This package is tested
 to work only with VIA686A.
 
-%description -l pl
-wmgtemp jest dokowalnym czujnikiem temperatury przeznaczonym do uøycia
-z WindowMakerem. Wy∂wietla on temperatury CPU i p≥yty g≥Ûwnej (zarÛwno
-w postaci warto∂ci jak i graficznie) uøywaj±c pakietu lm_sensors i
-biblioteki libsensors. Przy przekroczeniu zadanej przez uøytkownika
-temperatury wy∂wietla ostrzegaj±ce ∂wiate≥ka.
+%description -l pl.UTF-8
+wmgtemp jest dokowalnym czujnikiem temperatury przeznaczonym do u≈ºycia
+z WindowMakerem. Wy≈õwietla on temperatury CPU i p≈Çyty g≈Ç√≥wnej (zar√≥wno
+w postaci warto≈õci jak i graficznie) u≈ºywajƒÖc pakietu lm_sensors i
+biblioteki libsensors. Przy przekroczeniu zadanej przez u≈ºytkownika
+temperatury wy≈õwietla ostrzegajƒÖce ≈õwiate≈Çka.
 
-Wspieranymi urz±dzeniami (czujnikami) s± VIA686A, W83781D, W83627HF,
-AS99127F i ADM1021. Jest takøe dostÍpne wsparcie dla innych urz±dzeÒ
-za pomoc± skanowania po dostÍpnych czujnikach. Oryginalnie pakiet ten
-zosta≥ napisany dla VIA686A i jest przetestowany tylko dla tego
+Wspieranymi urzƒÖdzeniami (czujnikami) sƒÖ VIA686A, W83781D, W83627HF,
+AS99127F i ADM1021. Jest tak≈ºe dostƒôpne wsparcie dla innych urzƒÖdze≈Ñ
+za pomocƒÖ skanowania po dostƒôpnych czujnikach. Oryginalnie pakiet ten
+zosta≈Ç napisany dla VIA686A i jest przetestowany tylko dla tego
 czujnika.
 
 %prep
